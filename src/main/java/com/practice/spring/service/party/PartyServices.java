@@ -16,4 +16,9 @@ public class PartyServices {
     public List<Party> getAllParties() {
         return partyRepository.findAll();
     }
+
+    public Party getPartyById(Long id) {
+        return partyRepository.findById(id).orElse(null);
+    }
+
 }
