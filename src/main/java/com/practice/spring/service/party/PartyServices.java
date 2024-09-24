@@ -21,4 +21,7 @@ public class PartyServices {
         return partyRepository.findById(id).orElse(null);
     }
 
+    public Party saveParty(Party party) {
+        return partyRepository.save(party);
+    }
 }

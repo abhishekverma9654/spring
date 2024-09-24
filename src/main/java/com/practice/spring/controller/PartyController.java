@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.practice.spring.base.BaseConstants.basePath;
+
 @RestController
-@RequestMapping(value = "/api/parties", method = RequestMethod.GET)
+@RequestMapping(value = basePath+"/parties")
 public class PartyController {
 
     @Autowired
@@ -22,5 +24,10 @@ public class PartyController {
     @GetMapping("/{id}")
     public Party getPartyById(@PathVariable Long id) {
         return partyService.getPartyById(id);
+    }
+
+    @PostMapping()
+    public Party createParty(@RequestBody Party party) {
+        return partyService.saveParty(party);
     }
 }
