@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.practice.spring.base.constants.ModelConstants.PARTY_ID;
+import static com.practice.spring.base.constants.ParameterConstants.MESSAGE;
+
 @Service()
 public class PartyServices {
 
@@ -26,8 +29,8 @@ public class PartyServices {
     public Map<String, Object> saveParty(Party party) {
         Map<String, Object> response = new HashMap<>();
         partyRepository.save(party);
-        response.put("partyId", party.getPartyId());
-        response.put("message", "Created party Successfully");
+        response.put(PARTY_ID, party.getPartyId());
+        response.put(MESSAGE, "Created party Successfully");
         return response;
     }
 
@@ -41,8 +44,8 @@ public class PartyServices {
             existingParty.setDescription(party.getDescription());
             partyRepository.save(existingParty);
 
-            response.put("partyId", existingParty.getPartyId());
-            response.put("message", "Updated party Successfully");
+            response.put(PARTY_ID, existingParty.getPartyId());
+            response.put(MESSAGE, "Updated party Successfully");
         }
         return response;
     }

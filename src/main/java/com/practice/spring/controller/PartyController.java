@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-import static com.practice.spring.base.BaseConstants.basePath;
+import static com.practice.spring.base.constants.PathConstants.PARTIES;
+import static com.practice.spring.base.constants.PathConstants.BASE_PATH;
 
 @RestController
-@RequestMapping(value = basePath+"/parties")
+@RequestMapping(value = BASE_PATH+PARTIES)
 public class PartyController {
 
     @Autowired
