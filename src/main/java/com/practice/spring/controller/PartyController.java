@@ -37,4 +37,9 @@ public class PartyController {
     public Map<String, Object> updateParty(@PathVariable String id, @RequestBody Party party) {
         return partyService.updateParty(id, party);
     }
+
+    @DeleteMapping("/{id}")
+    public Map<String, Object> deleteParty(@PathVariable String id) {
+        return partyService.deleteParty(id);
+    }
 }

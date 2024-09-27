@@ -49,4 +49,17 @@ public class PartyServices {
         }
         return response;
     }
+
+    public Map<String, Object> deleteParty(String id) {
+        Map<String, Object> response = new HashMap<>();
+        Party party = partyRepository.findById(id).orElse(null);
+        if (party != null) {
+            partyRepository.delete(party);
+            response.put(MESSAGE, "Deleted party Successfully");
+        } else {
+            response.put(MESSAGE, "Party not found");
+        }
+        response.put(PARTY_ID, id);
+        return response;
+    }
 }
